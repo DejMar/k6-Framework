@@ -1,0 +1,22 @@
+{
+  "baseUrl": "https://test.k6.io",
+  "options": {
+    "vus": 5,
+    "duration": "30s",
+    "gracefulStop": "10s",
+    "thresholds": {
+      "http_req_duration": ["p(95)<500", "p(99)<850"],
+      "checks": ["rate>0.99"]
+    },
+    "summaryTrendStats": ["avg", "min", "med", "p(95)", "p(99)", "max"]
+  },
+  "endpoints": {
+    "landing": "/",
+    "contact": "/contacts.php"
+  },
+  "summary": {
+    "json": "data/results/smoke-summary.json",
+    "html": "reports/smoke-summary.html"
+  },
+  "sleepBetweenIterations": 1
+}

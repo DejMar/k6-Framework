@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# k6 outputs
+logs/
+reports/
+data/results/
+
+# IDE files
+.vscode/
+.idea/
