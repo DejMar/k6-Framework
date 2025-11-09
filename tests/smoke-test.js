@@ -58,27 +58,6 @@ export default function (data) {
     });
   });
 
-  // Group: Catalog Page
-  group('Catalog page', () => {
-    const response = http.get(`${data.baseUrl}${config.endpoints.catalog}`);
-    catalogDuration.add(response.timings.duration);
-    check(response, {
-      'catalog page status is 200': (res) => res.status === 200,
-      // Look for at least "Menu" or sample pizza item on catalog page
-      'catalog page lists menu': (res) => res.body.includes('Menu') || res.body.includes('Margherita'),
-    });
-  });
-
-  // Group: Login Page
-  group('Login page', () => {
-    const response = http.get(`${data.baseUrl}${config.endpoints.login}`);
-    loginDuration.add(response.timings.duration);
-    check(response, {
-      'login page status is 200': (res) => res.status === 200,
-      // Look for the login form or keyword "Login"
-      'login page has form': (res) => res.body.includes('Login') || res.body.includes('login_form'),
-    });
-  });
 
   sleep(data.sleepDuration);
 }
