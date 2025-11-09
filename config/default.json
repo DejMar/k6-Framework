@@ -12,7 +12,10 @@
   },
   "endpoints": {
     "landing": "/",
-    "contact": "/contacts.php"
+    "contact": "/contacts.php",
+    "news": "/news.php",
+    "catalog": "/catalog.php",
+    "login": "/login"
   },
   "summary": {
     "json": "data/results/smoke-summary.json",
