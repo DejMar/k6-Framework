@@ -17,8 +17,6 @@ export const options = buildOptions();
 const landingDuration = new Trend('landing_page_duration', true);
 const contactDuration = new Trend('contact_page_duration', true);
 const newsDuration = new Trend('news_page_duration', true);
-const catalogDuration = new Trend('catalog_page_duration', true);
-const loginDuration = new Trend('login_page_duration', true);
 
 export function setup() {
   return {
@@ -34,7 +32,7 @@ export default function (data) {
     landingDuration.add(response.timings.duration);
     check(response, {
       'landing page status is 200': (res) => res.status === 200,
-      //'landing page has welcome text': (res) => res.body.includes('QuickPizza Legacy'),
+      'landing page has welcome text': (res) => res.body.includes('QuickPizza Legacy'),
     });
   });
 
